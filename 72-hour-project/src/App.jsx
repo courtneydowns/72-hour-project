@@ -7,7 +7,7 @@ function App() {
   const getLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        // console.log(position);
+        console.log(position);
         setLocation(position);
       });
     }
