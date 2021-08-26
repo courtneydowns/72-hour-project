@@ -23,6 +23,7 @@ function App() {
       <form>
         <label for=""></label><br />
         <input type="text" id="" name="" />
+        <input type="submit" value="Submit" />
       </form>
       <NASA />
     </div>
