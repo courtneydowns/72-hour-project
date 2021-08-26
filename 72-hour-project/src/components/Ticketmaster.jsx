@@ -1,24 +1,19 @@
 import React, { useState, useEffect } from "react";
 
 const Ticketmaster = (props) => {
-  // const { latitude, longitude } = props.location.coords;
-
   const [events, setEvents] = useState([]);
 
   const key = "OLGIKro3RShZ6AAJiMcpO7j1EIEHjiAF";
 
-  // const ticketmasterFetch = () => {
-  //   console.log(props.location);
-  // };
-
   const handlePropsChange = () => {
     fetch(
-      `https://app.ticketmaster.com/discovery/v2/events.json?size=10&apikey=${key}&latlong=${props.location.coords.latitude},${props.location.coords.longitude}`
+      `https://app.ticketmaster.com/discovery/v2/events.json?size=20&apikey=${key}&latlong=${props.location.coords.latitude},${props.location.coords.longitude}`
     )
       .then((res) => res.json())
       .then((json) => {
         console.log(json);
-        debugger;
+        console.log()
+
         // See if you can console log something specific from the response (maybe the first event)
         //store the json in a useState Hook - setter function
         // Try to only store the events array
@@ -31,7 +26,7 @@ const Ticketmaster = (props) => {
     if (props.location?.coords?.latitude && props.location?.coords?.longitude) {
       handlePropsChange();
     }
-  }, [props.location]);
+  }, [props.location.coords]);
 
   return (
     <div>
