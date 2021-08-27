@@ -7,18 +7,6 @@ img {
   width: 75px;
 }
 
-.NavItem {
-  color: #ffffff;
-}
-
-.NavLink {
-  color: white;
-}
-
-.NavBarToggler {
-  color: white;
-}
-
-.nav {
+.NavLink .nav-link {
   color: white;
 }

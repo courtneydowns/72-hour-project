@@ -5,7 +5,7 @@ import "../App.css";
 import "../Ticketmaster.css";
 
 const TicketmasterChild = (props) => {
-  const { name, dates, _embedded, distance } = props?.event;
+  const { name, dates, _embedded, distance } = props.event;
   return (
     <>
       <Container className="container" fluid={true}>

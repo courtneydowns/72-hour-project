@@ -1,55 +1,48 @@
-import React, { useState, useEffect } from "react";
-import TicketmasterChild from "./TicketmasterChild";
+import React from "react";
+import { Card, CardTitle, CardText, CardBody, Container } from "reactstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../App.css";
 import "../Ticketmaster.css";
 
-import { CardDeck } from "reactstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
-
-const Ticketmaster = (props) => {
-  const [events, setEvents] = useState([]);
-
-  const url = `https://app.ticketmaster.com/discovery/v2/events.json?`;
-
-  const key = "OLGIKro3RShZ6AAJiMcpO7j1EIEHjiAF";
-
-  const handlePropsChange = async () => {
-    const response = await fetch(
-      `${url}size=30&apikey=${key}&latlong=${props.location.coords.latitude},${props.location.coords.longitude}`
-    );
-
-    const data = await response.json();
-    console.log(data._embedded.events);
-    setEvents(data._embedded.events);
-  };
-
-  useEffect(() => {
-    if (props.location?.coords?.latitude && props.location?.coords?.longitude) {
-      handlePropsChange();
-    }
-  }, [props.location]);
-
-  //use effect runs when component is mounted. WHen it's mounted, I am running my handlePropsChange immediately which is where my fetch is. Need to figure out way to do useEffect but not run fetch immediately...don't run fetch until button is clicked.
-
-  const displayCards = (props) =>
-    events.map((event, id) => <TicketmasterChild key={id} event={event} />);
-
+const TicketmasterChild = (props) => {
+  const { name, dates, _embedded, distance } = props?.event;
   return (
-    <div>
-      <h1
-        className="ticketmaster"
-        style={{
-          textAlign: "center",
-          marginTop: 100,
-          fontSize: 40,
-          color: "white",
-        }}
-      >
-        Ticketmaster: Nearby Events
-      </h1>
-
-      <CardDeck>{events ? displayCards() : null}</CardDeck>
-    </div>
+    <>
+      <Container className="container" fluid={true}>
+        <Card
+          style={{
+            marginTop: 30,
+          }}
+        >
+          <CardBody>
+            <CardTitle
+              className="event-card"
+              style={{ fontSize: 30, textAlign: "center" }}
+              tag="h3"
+            >
+              {name}
+            </CardTitle>
+            <CardText>
+              <ul style={{ listStyle: "none" }}>
+                <h4
+                  className="venue"
+                  style={{ fontSize: 24, textAlign: "center" }}
+                >{`Venue: ${_embedded.venues[0].name}`}</h4>
+                <h4
+                  className="date"
+                  style={{ fontSize: 20, textAlign: "center" }}
+                >{`Date: ${dates.start.localDate}`}</h4>
+                <h5
+                  className="distance"
+                  style={{ fontSize: 18, textAlign: "center" }}
+                >{`Distance: ${distance}`}</h5>
+              </ul>
+            </CardText>
+          </CardBody>
+        </Card>
+      </Container>
+    </>
   );
 };
 
-export default Ticketmaster;
+export default TicketmasterChild;
