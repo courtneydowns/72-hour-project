@@ -1,29 +1,40 @@
-import React from 'react';
+//import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 const NASA = (props) => {
 
-    const {latitude, longitude} = props.location.coords;
+    const {latitude, longitude} = props.location;
 
     const baseURL = `https://api.nasa.gov/planetary/earth/imagery`;
     const key = `KTatox3u1ypx0L1rspOXjF9CjVu4Az1MHE0mdCbj`;
 
-    fetch(`${baseURL}?lon=${longitude}&lat=${latitude}&dim=0.10&api_key=${key}`)
-    .then(response => response.json())
-    .then(json => displayContent(json));
+    //const [image, setImage] = useState("");
 
-    function displayContent(spaceImg) {
+    const fetchURL = async() => {
+        const response = await fetch(`${baseURL}?lon=${longitude}&lat=${latitude}&dim=0.10&api_key=${key}`);
+        const data = await response.json();
 
-        console.log(spaceImg);
+        console.log(data);
 
-        let image = document.createElement('img');
-        image.src = `${baseURL}?lon=${longitude}&lat=${latitude}&dim=0.10&api_key=${key}`;
+        // let image = document.createElement('img');
+        // image.src = `${baseURL}?lon=${longitude}&lat=${latitude}&dim=0.10&api_key=${key}`;
+    };
 
-        //insert code here for where image will be displayed (e.g. card.insertBefore(image, cardBody);)
+    useEffect(() => {
+        fetchURL();
+    }, []);
+
+    const displayContent = (image) => {
+        fetchURL();
     }
+
+    console.log("LAT: " + latitude);
+    console.log("LONG: " + longitude);
 
     return(
         <div>
-            <img src={url} />
+            <img src={`${baseURL}?lon=${longitude}&lat=${latitude}&dim=0.9&api_key=${key}`} alt="satellite" width="300" height="300" />
+            {/* <img src={`${baseURL}?lon=41&lat=85&dim=0.9&api_key=${key}`} alt="satellite" width="300" height="300" /> */}
         </div>
     );
 }
