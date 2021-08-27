@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import NavigationBar from "./components/NavigationBar";
+import Weather from "./components/Weather";
 import Ticketmaster from "./components/Ticketmaster";
+import "./Ticketmaster.css";
+import "./NavBar.css";
 
 function App() {
   const [location, setLocation] = useState({});
@@ -21,7 +25,9 @@ function App() {
 
   return (
     <div>
+      <NavigationBar />
       <Ticketmaster location={location} />
+      {/* <Weather location={location} /> */}
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TicketmasterChild from "./TicketmasterChild";
+import "../Ticketmaster.css";
 
 import { CardDeck } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,13 +14,12 @@ const Ticketmaster = (props) => {
 
   const handlePropsChange = async () => {
     const response = await fetch(
-      `${url}size=100&apikey=${key}&latlong=${props.location.coords.latitude},${props.location.coords.longitude}`
+      `${url}size=30&apikey=${key}&latlong=${props.location.coords.latitude},${props.location.coords.longitude}`
     );
-    debugger;
+
     const data = await response.json();
     console.log(data._embedded.events);
     setEvents(data._embedded.events);
-    // setEvents(data.events._embedded.events);
   };
 
   useEffect(() => {
@@ -35,7 +35,18 @@ const Ticketmaster = (props) => {
 
   return (
     <div>
-      <h1 className="ticketmaster">Ticketmaster: Nearby Events</h1>
+      <h1
+        className="ticketmaster"
+        style={{
+          textAlign: "center",
+          marginTop: 100,
+          fontSize: 40,
+          color: "white",
+        }}
+      >
+        Ticketmaster: Nearby Events
+      </h1>
+
       <CardDeck>{events ? displayCards() : null}</CardDeck>
     </div>
   );
