@@ -1,15 +1,42 @@
+import React, { useState, useEffect } from "react";
+import TicketmasterChild from "./TicketmasterChild";
+
+import { CardDeck } from "reactstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 const Ticketmaster = (props) => {
-  /*
-    1. Declare state variables for URL and the response
-    2. Write a function that will handle the fetch
-    3. Set everything up in order using useEffect hook ... set URL based on props (location (inside useEffect in dependency array..put props in))
-    4. Do Fetch...set response state setWHATEVER
-    5. Then display results however
-    */
+  const [events, setEvents] = useState([]);
+
+  const url = `https://app.ticketmaster.com/discovery/v2/events.json?`;
+
+  const key = "OLGIKro3RShZ6AAJiMcpO7j1EIEHjiAF";
+
+  const handlePropsChange = async () => {
+    const response = await fetch(
+      `${url}size=100&apikey=${key}&latlong=${props.location.coords.latitude},${props.location.coords.longitude}`
+    );
+    debugger;
+    const data = await response.json();
+    console.log(data._embedded.events);
+    setEvents(data._embedded.events);
+    // setEvents(data.events._embedded.events);
+  };
+
+  useEffect(() => {
+    if (props.location?.coords?.latitude && props.location?.coords?.longitude) {
+      handlePropsChange();
+    }
+  }, [props.location]);
+
+  //use effect runs when component is mounted. WHen it's mounted, I am running my handlePropsChange immediately which is where my fetch is. Need to figure out way to do useEffect but not run fetch immediately...don't run fetch until button is clicked.
+
+  const displayCards = (props) =>
+    events.map((event, id) => <TicketmasterChild key={id} event={event} />);
+
   return (
     <div>
-      <h1>Hello from Ticketmaster</h1>
-      <p>{props.location.coords ? props.location.coords.latitude : null}</p>
+      <h1 className="ticketmaster">Ticketmaster: Nearby Events</h1>
+      <CardDeck>{events ? displayCards() : null}</CardDeck>
     </div>
   );
 };
