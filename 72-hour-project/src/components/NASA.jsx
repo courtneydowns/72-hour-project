@@ -1,40 +1,43 @@
-//import React, { useState, useEffect } from 'react';
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+//import React, { useEffect } from 'react';
 
 const NASA = (props) => {
-
     const {latitude, longitude} = props.location;
 
     const baseURL = `https://api.nasa.gov/planetary/earth/imagery`;
     const key = `KTatox3u1ypx0L1rspOXjF9CjVu4Az1MHE0mdCbj`;
 
-    //const [image, setImage] = useState("");
+    const [nasaUrl, setNasaUrl] = useState("");
+
+    const [image, setImage] = useState(null);
+
 
     const fetchURL = async() => {
-        const response = await fetch(`${baseURL}?lon=${longitude}&lat=${latitude}&dim=0.10&api_key=${key}`);
+
+        if (!latitude || !longitude) {
+            return;
+        }
+        const response = await fetch(nasaUrl + key);
         const data = await response.json();
+
+        setImage(nasaUrl.createObject(data));
 
         console.log(data);
 
-        // let image = document.createElement('img');
-        // image.src = `${baseURL}?lon=${longitude}&lat=${latitude}&dim=0.10&api_key=${key}`;
     };
 
-    useEffect(() => {
-        fetchURL();
-    }, []);
+    useEffect(fetchURL, [nasaUrl]);
 
-    const displayContent = (image) => {
-        fetchURL();
+    const displayContent = () => {
+        setNasaUrl(`${baseURL}?lon=${longitude}&lat=${latitude}&date=2021-08-22&dim=0.10&api_key=${key}`);
     }
 
-    console.log("LAT: " + latitude);
-    console.log("LONG: " + longitude);
+    console.log("Latitude: " + latitude); //console.log latitude
+    console.log("Longitude: " + longitude); //console.log longitude
 
     return(
         <div>
-            <img src={`${baseURL}?lon=${longitude}&lat=${latitude}&dim=0.9&api_key=${key}`} alt="satellite" width="300" height="300" />
-            {/* <img src={`${baseURL}?lon=41&lat=85&dim=0.9&api_key=${key}`} alt="satellite" width="300" height="300" /> */}
+            {image ? (<img src={image} alt="" />) : null}
         </div>
     );
 }
