@@ -14,7 +14,7 @@ const Ticketmaster = (props) => {
 
   const handlePropsChange = async () => {
     const response = await fetch(
-      `${url}size=30&apikey=${key}&latlong=${props.location.coords.latitude},${props.location.coords.longitude}`
+      `${url}size=7&apikey=${key}&latlong=${props.location.coords.latitude},${props.location.coords.longitude}`
     );
 
     const data = await response.json();
