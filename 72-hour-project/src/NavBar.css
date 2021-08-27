@@ -1,0 +1,24 @@
+.fixed-top {
+  position: fixed;
+}
+
+img {
+  height: 75px;
+  width: 75px;
+}
+
+.NavItem {
+  color: #ffffff;
+}
+
+.NavLink {
+  color: white;
+}
+
+.NavBarToggler {
+  color: white;
+}
+
+.nav {
+  color: white;
+}
