@@ -7,6 +7,14 @@ img {
   width: 75px;
 }
 
-.NavLink .nav-link {
-  color: white;
+a.NavLink.nav-link {
+  color: white !important;
+  font-family: "Quattrocento Sans", sans-serif;
+  font-size: 20px;
+}
+
+.nav-link {
+  color: white !important;
+  font-family: "Quattrocento Sans", sans-serif;
+  font-size: 20px;
 }

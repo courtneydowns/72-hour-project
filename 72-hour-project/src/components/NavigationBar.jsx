@@ -21,19 +21,26 @@ const NavigationBar = (props) => {
       <NavbarBrand href="/" className="mr-auto">
         <img src={WhiteLlama} />
       </NavbarBrand>
-      <NavbarToggler onClick={toggleNavbar} className="mr-2 NavBarToggler" />
+      <NavbarToggler onClick={toggleNavbar} className="mr-2" />
       <Collapse isOpen={!collapsed} navbar>
-        <Nav navbar className="nav">
-          <NavItem className="NavItem">
-            <NavLink className="NavLink" href="../Ticketmaster.css">
+        <Nav navbar>
+          <NavItem>
+            <NavLink
+              href="../components/Ticketmaster.jsx"
+              className="NavLink nav-link"
+            >
               Ticketmaster
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="./Weather.jsx">Weather</NavLink>
+            <NavLink href="./Weather.jsx" className="NavLink nav-link nav-link">
+              Weather
+            </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="./Weather.jsx">NASA</NavLink>
+            <NavLink href="./Weather.jsx" className="nav-link">
+              NASA
+            </NavLink>
           </NavItem>
         </Nav>
       </Collapse>

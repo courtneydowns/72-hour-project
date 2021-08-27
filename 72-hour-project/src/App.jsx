@@ -25,9 +25,9 @@ function App() {
 
   return (
     <div>
+      <NavigationBar />
       <Ticketmaster location={location} />
       {/* <Weather location={location} /> */}
-      <NavigationBar />
     </div>
   );
 }
