@@ -40,7 +40,7 @@ const Ticketmaster = (props) => {
         style={{
           textAlign: "center",
           marginTop: 100,
-          fontSize: 40,
+          fontSize: 50,
           color: "white",
         }}
       >
