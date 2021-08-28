@@ -12,7 +12,7 @@ const TicketmasterChild = (props) => {
         <Card
           style={{
             marginTop: 30,
-          }}
+          }} body inverse color="info"
         >
           <CardBody>
             <CardTitle

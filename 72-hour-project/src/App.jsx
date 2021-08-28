@@ -30,9 +30,8 @@ function App() {
       {/* <NavigationBar /> */}
       <img src={WhiteLlama} />
       <NASA location={location} /> 
-            {/* <Weather location={location} /> */}
+      <Weather location={location} />
       <Ticketmaster location={location} />
-
     </div>
   );
 }
