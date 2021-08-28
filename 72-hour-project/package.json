@@ -1,14 +1,20 @@
 {
-  "name": "72-hour-project",
+  "name": "react-book-codealong",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "react": "^17.0.2",
+    "babel-polyfill": "^6.26.0",
+    "bootstrap": "^4.3.1",
+    "lodash": "^4.17.11",
+    "react": "^17.0.1",
+    "react-codepen": "^0.1.0",
+    "react-icons": "^3.7.0",
     "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "^4.0.3",
+    "react-spinners": "^0.5.4",
+    "reactstrap": "^8.9.0",
+    "youtube-api-search": "^0.0.5",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -19,8 +25,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
