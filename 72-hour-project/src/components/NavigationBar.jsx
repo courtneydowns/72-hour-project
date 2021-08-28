@@ -38,7 +38,7 @@ const NavigationBar = (props) => {
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="./Weather.jsx" className="nav-link">
+            <NavLink href="./NASA.jsx" className="nav-link">
               NASA
             </NavLink>
           </NavItem>
