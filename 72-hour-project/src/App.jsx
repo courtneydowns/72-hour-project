@@ -27,10 +27,25 @@ function App() {
 
   return (
     <div>
-      {/* <NavigationBar /> */}
-      <img src={WhiteLlama} />
-      <NASA location={location} /> 
+      <br />
+      <center>
+        {/* <NavigationBar /> */}
+        <img src={WhiteLlama} />
+        </center>
+        <br />
+        <br />
+        <center>
+      <table>
+        <tr>
+          <td>
+        <NASA location={location} /> 
+        </td>
+        <td>
       <Weather location={location} />
+      </td>
+      </tr>
+      </table>
+      </center>
       <Ticketmaster location={location} />
     </div>
   );

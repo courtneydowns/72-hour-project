@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import TicketmasterChild from "./TicketmasterChild";
 import "../Ticketmaster.css";
 
-import { CardDeck } from "reactstrap";
+import { CardDeck, Container } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Ticketmaster = (props) => {
@@ -47,7 +47,9 @@ const Ticketmaster = (props) => {
         Ticketmaster: Nearby Events
       </h1>
 
-      <CardDeck>{events ? displayCards() : null}</CardDeck>
+      <Container>
+        <CardDeck>{events ? displayCards() : null}</CardDeck>
+      </Container>
     </div>
   );
 };
