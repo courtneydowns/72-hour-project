@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-//import React, { useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import './NASA.css';
+import { Card, CardBody, CardText, CardImg, Button, Row, Col, CardTitle } from "reactstrap";
 
 const NASA = (props) => {
     
@@ -39,10 +39,14 @@ console.log(props.location)
     }, [props.location]);
     return(
         <div>
-            <center>
-                <h1 className="nasaHeader">Satellite View</h1>
-                <img src={nasaUrl} alt="satellite view" className="NasaImg" />
-            </center>
+            <Row>
+                <Col>   
+                    <center>
+                        <h3 className="nasaHeader">Satellite View</h3>
+                        <img src={nasaUrl} alt="satellite view" className="NasaImg" />
+                    </center>
+                </Col>
+            </Row>
         </div>
     );
 }
