@@ -1,12 +1,6 @@
-body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 @import url("https://fonts.googleapis.com/css2?family=Quattrocento&family=Quattrocento+Sans:wght@400;700&display=swap");
 
-h3, h1, h2, h4 {
+h1.nasaHeader {
   font-family: "Quattrocento", serif;
   font-weight: bold;
   color: white;
@@ -19,9 +13,3 @@ img.NasaImg {
     border-radius: 50%;
     border: 2px solid white;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-

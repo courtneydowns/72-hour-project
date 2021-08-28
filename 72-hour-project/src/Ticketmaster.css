@@ -1,0 +1,44 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Josefin+Slab&family=Patrick+Hand&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css2?family=Courier+Prime&family=Josefin+Slab&family=Montserrat&family=Patrick+Hand&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Vidaloka&display=swap"); */
+
+@import url("https://fonts.googleapis.com/css2?family=Quattrocento&family=Quattrocento+Sans:wght@400;700&display=swap");
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #404479;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.ticketmaster {
+  font-family: "Quattrocento", serif;
+  font-weight: bold;
+}
+
+.event-card {
+  font-family: "Quattrocento Sans", sans-serif;
+  font-weight: bold;
+  color: white;
+}
+
+.venue {
+  font-family: "Quattrocento Sans", sans-serif;
+  color: white;
+}
+
+.date {
+  font-family: "Quattrocento Sans", sans-serif;
+  color: white;
+}
+
+.distance {
+  font-family: "Quattrocento Sans", sans-serif;
+  color: white;
+}
